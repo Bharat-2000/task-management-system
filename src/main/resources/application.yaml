@@ -5,10 +5,10 @@ spring:
   application:
     name: task-management-system
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    basePackages: "com.example.task_management_system.repository.postgres.ro"
-    username: postgres
-    password: Chetan123@#
+    url: ${APPLICATION_DATASOURCE_LOCAL_URL}
+    basePackages: ${DATASOURCE_LOCAL_BASEPACKAGES}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
