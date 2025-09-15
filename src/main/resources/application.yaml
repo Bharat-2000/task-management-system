@@ -6,6 +6,7 @@ spring:
     name: task-management-system
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
+    basePackages: "com.example.task_management_system.repository.postgres.ro"
     username: postgres
     password: Chetan123@#
   jpa:
