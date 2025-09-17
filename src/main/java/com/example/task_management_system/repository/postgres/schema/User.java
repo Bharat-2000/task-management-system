@@ -33,4 +33,20 @@ public class User extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "role_id", nullable = false)
     private UserRole roleId;
+
+    @Column(name="password")
+    private String password;
+
+    @Column(name="is_active")
+    private String isActive;
+
+// TODO: Might be helpful later (Take a look at how to utilize it later)
+//    private User create(User userRequest){
+//        return User.builder()
+//                .roleId(userRequest.roleId)
+//                .email(userRequest.email)
+//                .firstName(userRequest.firstName)
+//                .lastName(userRequest.lastName)
+//                .build();
+//    }
 }

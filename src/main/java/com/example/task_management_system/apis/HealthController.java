@@ -3,7 +3,6 @@ package com.example.task_management_system.apis;
 
 import com.example.task_management_system.models.response.health.CheckHealthResponse;
 import com.example.task_management_system.service.HealthService;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +32,4 @@ public class HealthController {
             return new ResponseEntity<>(new CheckHealthResponse(), HttpStatus.BAD_REQUEST);
         }
     }
-
 }

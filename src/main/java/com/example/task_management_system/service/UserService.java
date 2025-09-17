@@ -1,29 +1,35 @@
 package com.example.task_management_system.service;
 
-import com.example.task_management_system.models.response.health.CheckHealthResponse;
-import com.example.task_management_system.repository.postgres.enums.UserRole;
-import com.example.task_management_system.repository.postgres.ro.HealthRepositoryRO;
+import com.example.task_management_system.models.request.CreateUserRequest;
+import com.example.task_management_system.models.response.user.CreateUserResponse;
+import com.example.task_management_system.repository.postgres.rw.UserRepositoryRW;
 import com.example.task_management_system.repository.postgres.schema.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 
+@Service
 //TODO: Work pending start from scratch.
 public class UserService {
 
     @Autowired
-    HealthRepositoryRO healthRepositoryRO;
-    public CheckHealthResponse createUser(){
+    UserRepositoryRW userRepositoryRW;
+    public CreateUserResponse createUser(CreateUserRequest userRequest){
         User user = User.builder()
-                .roleId(UserRole.USER)
-                .email("lkdjalfkj")
-                .firstName("djnalg")
-                .lastName("lkdajg")
+                .firstName(userRequest.getFirstName())
+                .lastName(userRequest.getLastName())
+                .email(userRequest.getEmail())
+                .roleId(userRequest.getRoleId())
                 .build();
+        user.create(); // Set createdAt and updatedAt timestamps
 
-        healthRepositoryRO.save(user);
+        //JPA Save method
+        userRepositoryRW.save(user);
 
-        return CheckHealthResponse.builder()
-                .status("SUCCESSFULL")
+        return CreateUserResponse.builder()
+                .user(user)
                 .message("Connection Establised")
                 .build();
     }
