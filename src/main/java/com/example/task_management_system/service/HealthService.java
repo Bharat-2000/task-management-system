@@ -1,6 +1,5 @@
 package com.example.task_management_system.service;
 
-import com.example.task_management_system.apis.HealthController;
 import com.example.task_management_system.models.response.health.CheckHealthResponse;
 import com.example.task_management_system.repository.postgres.ro.HealthRepositoryRO;
 import com.example.task_management_system.repository.postgres.schema.User;
